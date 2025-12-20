@@ -98,7 +98,10 @@ export default function Home({ posts, projects }) {
                     <strong>Core Philosophy:</strong> Inspired by Pandit Deendayal's Integral
                     Humanism, I'm committed to building a decentralised, swadeshi economy that
                     empowers every Indian citizen to express their unique{' '}
-                    <a href="https://www.chiti.network" className="text-brand-accent">
+                    <a
+                      href="https://github.com/Decentralised-Autonomous-Institutions/Chiti"
+                      className="text-brand-accent"
+                    >
                       Chiti
                     </a>{' '}
                     through sovereign digital infrastructure.
