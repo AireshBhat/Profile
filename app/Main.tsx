@@ -46,9 +46,9 @@ export default function Home({ posts, projects }) {
     <>
       {/* Full-width Hero Section with Background Image */}
       <motion.div
-        className="hero-section relative min-h-screen w-full overflow-hidden"
-        initial="initial"
-        animate="animate"
+        className="hero-section relative left-1/2 min-h-screen w-screen -translate-x-1/2 overflow-hidden"
+        // initial="initial"
+        // animate="animate"
         variants={staggerContainer}
       >
         {/* Background Image */}
@@ -74,13 +74,13 @@ export default function Home({ posts, projects }) {
             <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8">
               <div className="lg:flex-1">
                 <motion.h1
-                  className="mb-4 text-4xl font-bold text-stone-100 lg:text-6xl"
+                  className="mb-4 text-4xl font-bold text-white lg:text-6xl"
                   variants={slideInLeft}
                 >
                   Road to Web3, v.india
                 </motion.h1>
                 <motion.p
-                  className="mb-6 text-lg leading-relaxed text-gray-100 lg:text-xl"
+                  className="text-primary-50 mb-6 text-lg leading-relaxed lg:text-xl"
                   variants={fadeInUp}
                 >
                   Full-stack blockchain engineer with a unique journey from traditional web
@@ -100,7 +100,7 @@ export default function Home({ posts, projects }) {
                     empowers every Indian citizen to express their unique{' '}
                     <a
                       href="https://github.com/Decentralised-Autonomous-Institutions/Chiti"
-                      className="text-brand-accent"
+                      className="text-brand-accent hover:text-primary-300 transition-colors"
                     >
                       Chiti
                     </a>{' '}

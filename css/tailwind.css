@@ -4,65 +4,54 @@
 @source '../node_modules/pliny';
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Core theme configuration */
 @theme {
-  /* Font families */
-  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /* Font families - Space Grotesk is modern but remains legible for deep philosophy */
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
-  /* Colors - Updated to match landing page design */
-  /* Primary colors - using #28282F as the base primary color */
-  --color-primary-50: #f8f8f9;
-  --color-primary-100: #f0f0f2;
-  --color-primary-200: #e2e2e6;
-  --color-primary-300: #cdcdd4;
-  --color-primary-400: #b1b1be;
-  --color-primary-500: #28282F;  /* Primary Accent Color */
-  --color-primary-600: #232329;
-  --color-primary-700: #1e1e23;
-  --color-primary-800: #19191d;
-  --color-primary-900: #161618;
-  --color-primary-950: #0d0d0e;
+  /* Primary Colors: Inspired by "Chiti" (The Nation's Soul) 
+    A transition from deep earth to vibrant saffron-ochre.
+  */
+  --color-primary-50: #fff9ed;
+  --color-primary-100: #ffefd1;
+  --color-primary-200: #ffd9a3;
+  --color-primary-300: #ffb969;
+  --color-primary-400: #ff8e2e;
+  --color-primary-500: #e36414; /* "Virat" Energy Color */
+  --color-primary-600: #cc4e10;
+  --color-primary-700: #a63a0f;
+  --color-primary-800: #843013;
+  --color-primary-900: #6b2912;
+  --color-primary-950: #3a1207;
 
-  /* Custom brand colors */
-  --color-brand-bg: #F9F8F5;      /* Page Background Color */
-  --color-brand-card: #E6E2DB;    /* Card Background Color */
-  --color-brand-text: #161613;    /* Text, Heading & Body Color */
-  --color-brand-accent: #28282F;  /* Primary Accent Color */
+  /* Custom brand colors - Holistic & Integrated */
+  --color-brand-bg: #fcfaf7; /* "Parchment" */
+  --color-brand-card: #f3efe9; /* Earthy stone / organic texture */
+  --color-brand-text: #1b1612; /* Deep charcoal with a hint of warm brown */
+  --color-brand-accent: #a63a0f; /* "Dharma" */
 
-  /* Updated gray colors to match the warm color scheme */
-  --color-gray-50: #F9F8F5;   /* Card Background */
-  --color-gray-100: #F2F1EC;
-  --color-gray-200: #E6E2DB;  /* Page Background */
-  --color-gray-300: #D4CFBF;
-  --color-gray-400: #A8A299;
-  --color-gray-500: #7D7770;
-  --color-gray-600: #5D5851;
-  --color-gray-700: #46433E;
-  --color-gray-800: #2F2D29;
-  --color-gray-900: #161613;  /* Text Color */
-  --color-gray-950: #0D0C0A;
+  /* Grays updated to "Mud" and "Clay" tones to match the Indian landscape */
+  --color-gray-50: #fcfaf7;
+  --color-gray-100: #f3efe9;
+  --color-gray-200: #e7e0d4; /* Border colors - soft and organic */
+  --color-gray-300: #d1c4b1;
+  --color-gray-400: #a8957f;
+  --color-gray-500: #8a7661;
+  --color-gray-600: #6d5c4c;
+  --color-gray-700: #54463a;
+  --color-gray-800: #3d332b;
+  --color-gray-900: #1b1612;
+  --color-gray-950: #0f0d0b;
 
-  /* Line heights */
   --line-height-11: 2.75rem;
   --line-height-12: 3rem;
   --line-height-13: 3.25rem;
   --line-height-14: 3.5rem;
 
-  /* Z-index values */
   --z-60: 60;
   --z-70: 70;
   --z-80: 80;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -72,153 +61,81 @@
     border-color: var(--color-gray-200, currentColor);
   }
 
-  html {
-    background-color: var(--color-brand-bg);
-    color: var(--color-brand-text);
-  }
-
+  html,
   body {
     background-color: var(--color-brand-bg);
     color: var(--color-brand-text);
+    /* Reflecting the integrated nature: smooth transitions */
+    scroll-behavior: smooth;
   }
 
-  /* Dark mode overrides */
+  /* Dark mode - Shifts to a "Deep Night/Temple" aesthetic */
   html.dark {
-    background-color: var(--color-gray-900);
-    color: var(--color-gray-100);
-  }
+    --color-brand-bg: #0f0d0b;
+    --color-brand-card: #1b1612;
+    --color-brand-text: #f3efe9;
+    --color-brand-accent: #ffb969; /* Saffron glows in the dark */
 
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+  }
   html.dark body {
-    background-color: var(--color-gray-900);
-    color: var(--color-gray-100);
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
   }
 
   a,
   button {
     outline-color: var(--color-primary-500);
-  }
-
-  a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid;
-    border-radius: var(--radius-sm);
-    outline-color: var(--color-primary-500);
+    transition: all 0.2s ease-in-out;
   }
 }
 
 @layer utilities {
-  /* Brand color utilities */
-  .bg-brand-bg { background-color: var(--color-brand-bg); }
-  .bg-brand-card { background-color: var(--color-brand-card); }
-  .text-brand-text { color: var(--color-brand-text); }
-  .text-brand-accent { color: var(--color-brand-accent); }
-  .bg-brand-accent { background-color: var(--color-brand-accent); }
-  .border-brand-accent { border-color: var(--color-brand-accent); }
-
-  /* Full-width hero utilities */
-  .hero-section {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-    position: relative;
+  .bg-brand-bg {
+    background-color: var(--color-brand-bg);
+  }
+  .bg-brand-card {
+    background-color: var(--color-brand-card);
+  }
+  .text-brand-text {
+    color: var(--color-brand-text);
+  }
+  .text-brand-accent {
+    color: var(--color-brand-accent);
+  }
+  .bg-brand-accent {
+    background-color: var(--color-brand-accent);
   }
 
   .prose {
+    --tw-prose-links: var(--color-primary-700);
+    --tw-prose-headings: var(--color-brand-text);
+    --tw-prose-body: var(--color-brand-text);
+
     & a {
-      color: var(--color-primary-500);
+      color: var(--color-primary-600);
+      text-decoration-color: var(--color-primary-200);
       &:hover {
-        color: var(--color-primary-600);
-      }
-      & code {
-        color: var(--color-primary-400);
+        color: var(--color-primary-700);
+        text-decoration-thickness: 2px;
       }
     }
-    & :where(h1, h2) {
-      font-weight: 700;
-      letter-spacing: var(--tracking-tight);
+    & h1,
+    h2,
+    h3 {
+      /* Strong, grounded headings for foundational principles */
       color: var(--color-brand-text);
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
-    & h3 {
-      font-weight: 600;
-      color: var(--color-brand-text);
-    }
-    & :where(code):not(pre code) {
-      color: var(--color-primary-500);
-    }
-    & p, & li {
-      color: var(--color-brand-text);
+    & blockquote {
+      /* Quotes now look like traditional manuscripts/shastras */
+      border-left-color: var(--color-primary-500);
+      font-style: italic;
+      color: var(--color-gray-700);
+      background-color: var(--color-gray-50);
+      padding: 1rem;
     }
   }
-
-  .prose-invert {
-    & a {
-      color: var(--color-primary-500);
-      &:hover {
-        color: var(--color-primary-400);
-      }
-      & code {
-        color: var(--color-primary-400);
-      }
-    }
-    & :where(h1, h2, h3, h4, h5, h6) {
-      color: var(--color-gray-100);
-    }
-  }
-}
-
-.task-list-item::before {
-  @apply hidden;
-}
-
-.task-list-item {
-  @apply list-none;
-}
-
-.footnotes {
-  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
-}
-
-.data-footnote-backref {
-  @apply no-underline;
-}
-
-.csl-entry {
-  @apply my-5;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  transition:
-    background-color 600000s 0s,
-    color 600000s 0s;
-}
-
-.katex-display {
-  overflow: auto hidden;
-}
-
-.content-header-link {
-  opacity: 0;
-  margin-left: -24px;
-  padding-right: 4px;
-}
-
-.content-header:hover .content-header-link,
-.content-header-link:hover {
-  opacity: 1;
-}
-
-.linkicon {
-  display: inline-block;
-  vertical-align: middle;
 }

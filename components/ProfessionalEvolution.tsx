@@ -60,28 +60,30 @@ const phases: PhaseData[] = [
 const TimelineItem: React.FC<{ phase: PhaseData; isLast?: boolean }> = ({ phase, isLast }) => (
   <div className="relative flex items-start">
     {/* Timeline Line */}
-    {!isLast && <div className="absolute top-12 left-6 z-0 h-full w-px bg-gray-300" />}
+    {!isLast && (
+      <div className="absolute top-12 left-6 z-0 h-full w-px bg-gray-300 dark:bg-gray-700" />
+    )}
 
     {/* Number Circle */}
-    <div className="relative z-10 mr-6 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-700 text-lg font-bold text-white">
+    <div className="bg-primary-600 relative z-10 mr-6 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full text-lg font-bold text-white shadow-lg">
       {phase.number}
     </div>
 
     {/* Content */}
     <div className="flex-1 pb-12">
       {/* Phase Title */}
-      <h3 className="mb-2 text-xl font-bold text-gray-900">{phase.title}</h3>
+      <h3 className="text-brand-text mb-2 text-xl font-bold">{phase.title}</h3>
 
       {/* Period */}
-      <p className="mb-3 inline-block rounded-md bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-800">
+      <p className="bg-brand-card text-brand-text/80 mb-3 inline-block rounded-md px-3 py-1 text-sm font-semibold">
         {phase.period}
       </p>
 
       {/* Company */}
-      <p className="mb-3 text-sm font-semibold text-gray-800">{phase.company}</p>
+      <p className="text-brand-text mb-3 text-sm font-semibold">{phase.company}</p>
 
       {/* Description */}
-      <p className="mb-4 leading-relaxed text-gray-700">{phase.description}</p>
+      <p className="text-brand-text/90 mb-4 leading-relaxed">{phase.description}</p>
 
       {/* Achievements */}
       <ul className="mb-6 space-y-2">
@@ -91,9 +93,9 @@ const TimelineItem: React.FC<{ phase: PhaseData; isLast?: boolean }> = ({ phase,
 
           return (
             <li key={index} className="flex items-start">
-              <span className="mt-1 mr-3 text-gray-400">•</span>
-              <div className="text-sm leading-relaxed text-gray-700">
-                <strong>{title}:</strong> {description}
+              <span className="text-primary-500 mt-1 mr-3">•</span>
+              <div className="text-brand-text/90 text-sm leading-relaxed">
+                <strong className="text-brand-text">{title}:</strong> {description}
               </div>
             </li>
           )
@@ -105,14 +107,14 @@ const TimelineItem: React.FC<{ phase: PhaseData; isLast?: boolean }> = ({ phase,
         <div
           className={`rounded-lg border-l-4 p-4 ${
             phase.isTransformationMoment
-              ? 'border-green-400 bg-green-50'
-              : 'border-yellow-400 bg-yellow-50'
+              ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+              : 'border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20'
           }`}
         >
           <div className="flex items-start">
             <span className="mt-1 mr-3">{phase.isTransformationMoment ? '✅' : '📝'}</span>
             <div>
-              <p className="text-sm leading-relaxed text-gray-700 italic">{phase.insight}</p>
+              <p className="text-brand-text text-sm leading-relaxed italic">{phase.insight}</p>
             </div>
           </div>
         </div>

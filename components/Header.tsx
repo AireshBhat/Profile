@@ -8,6 +8,8 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 import { motion } from 'framer-motion'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 // Animation configurations
 const navHover = { scale: 1.15 }
@@ -22,6 +24,13 @@ const buttonHover = { scale: 1.1 }
 const buttonTap = { scale: 0.95 }
 
 const Header = () => {
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   let headerClass =
     'flex items-center w-full justify-between py-6 px-4 sm:px-6 lg:px-8 relative z-50'
   if (siteMetadata.stickyNav) {
@@ -37,7 +46,12 @@ const Header = () => {
           transition={transition}
         >
           <div className="mr-3">
-            <Logo fill="#1c2837" className="h-10 w-auto" />
+            <Logo
+              fill={
+                mounted && (theme === 'dark' || resolvedTheme === 'dark') ? '#F3EFE9' : '#1c2837'
+              }
+              className="h-10 w-auto"
+            />
           </div>
         </motion.div>
       </Link>
