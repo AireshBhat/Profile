@@ -6,7 +6,7 @@ interface PhaseData {
   period: string
   company: string
   description: string
-  achievements: string[]
+  achievements: (string | { title: string; description: React.ReactNode })[]
   insight?: string
   isTransformationMoment?: boolean
 }
@@ -16,12 +16,28 @@ const phases: PhaseData[] = [
     number: 1,
     title: 'Foundation in Enterprise Web Development',
     period: 'Jul 2020 - Nov 2022',
-    company: 'Bajaj Finserv Health | Software Engineer → Software Development Engineer',
+    company: 'Bajaj Finserv Health | Intern → Full-Stack Software Development',
     description:
-      "Started my journey building user-facing applications that served millions in India's healthcare sector:",
+      "Started my journey building user-facing applications that served India's healthcare sector:",
     achievements: [
       'Frontend Mastery: Developed and scaled ReactJS web applications and React Native mobile apps, ensuring seamless healthcare access across devices',
-      'System Architecture: By my final year, I was architecting integration solutions for the appointments division, implementing Unified Health Interface (UHI) protocols',
+      {
+        title: 'System Architecture',
+        description: (
+          <>
+            By my final year, I was architecting integration solutions for the appointments
+            division, participating in the development of{' '}
+            <a
+              href="https://abdm.gov.in/hackathon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-accent hover:underline"
+            >
+              Unified Health Interface (UHI) protocols
+            </a>
+          </>
+        ),
+      },
       'Scale & Impact: Worked on systems handling high-volume healthcare transactions, learning the importance of reliability and user-centric design',
     ],
     insight:
@@ -88,8 +104,17 @@ const TimelineItem: React.FC<{ phase: PhaseData; isLast?: boolean }> = ({ phase,
       {/* Achievements */}
       <ul className="mb-6 space-y-2">
         {phase.achievements.map((achievement, index) => {
-          const [title, ...rest] = achievement.split(': ')
-          const description = rest.join(': ')
+          let title: string
+          let description: React.ReactNode
+
+          if (typeof achievement === 'string') {
+            const parts = achievement.split(': ')
+            title = parts[0]
+            description = parts.slice(1).join(': ')
+          } else {
+            title = achievement.title
+            description = achievement.description
+          }
 
           return (
             <li key={index} className="flex items-start">
