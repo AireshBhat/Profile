@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://aireshbhat.github.io/Profile',
   siteRepo: 'https://github.com/AireshBhat/Profile',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/social-banner.png`,
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'nelliairesh@gmail.com',
   github: 'https://github.com/AireshBhat',
