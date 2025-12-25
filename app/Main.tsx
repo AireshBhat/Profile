@@ -158,7 +158,7 @@ export default function Home({ posts, projects }) {
               </h2>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-2">
+            <div className="mb-12 grid gap-8 lg:grid-cols-2">
               <div>
                 <h3 className="text-brand-text mb-6 text-xl font-bold">Immediate Goals</h3>
                 <div className="space-y-6">
@@ -204,7 +204,7 @@ export default function Home({ posts, projects }) {
                 </div>
               </div>
               <div className="flex flex-col gap-8">
-                <div className="relative h-48 overflow-hidden rounded-xl">
+                <div className="relative h-64 w-full overflow-hidden rounded-xl">
                   <Image
                     src="/static/images/landing/future-vision.png"
                     alt="Web3 Architecture Vision"
@@ -212,56 +212,57 @@ export default function Home({ posts, projects }) {
                     className="object-cover"
                   />
                 </div>
-                <div>
-                  <h3 className="text-brand-text mb-6 text-xl font-bold">Long-term Vision</h3>
-                  <p className="text-brand-text mb-6 text-sm leading-relaxed">
-                    Creating the technological foundation for a truly decentralised Bharat where:
-                  </p>
-                  <div className="space-y-4">
-                    <div className="bg-brand-bg flex items-center gap-4 rounded-lg p-4">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                        <span className="text-xl">👁️</span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-brand-text font-semibold">Digital Sovereignty</h4>
-                        <p className="text-brand-text text-sm">
-                          Every citizen owns their digital identity and data
-                        </p>
-                      </div>
-                    </div>
-                    <div className="bg-brand-bg flex items-center gap-4 rounded-lg p-4">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                        <span className="text-xl">💰</span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-brand-text font-semibold">Financial Freedom</h4>
-                        <p className="text-brand-text text-sm">
-                          Financial services accessible without intermediaries
-                        </p>
-                      </div>
-                    </div>
-                    <div className="bg-brand-bg flex items-center gap-4 rounded-lg p-4">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                        <span className="text-xl">🔄</span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-brand-text font-semibold">Local Economies</h4>
-                        <p className="text-brand-text text-sm">
-                          Communities thrive through peer-to-peer digital infrastructure
-                        </p>
-                      </div>
-                    </div>
-                    <div className="bg-brand-bg flex items-center gap-4 rounded-lg p-4">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                        <span className="text-xl">☸️</span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-brand-text font-semibold">Technology for Dharma</h4>
-                        <p className="text-brand-text text-sm">
-                          Technology serves dharma, not just profit
-                        </p>
-                      </div>
-                    </div>
+              </div>
+            </div>
+
+            <div className="w-full">
+              <h3 className="text-brand-text mb-6 text-xl font-bold">Long-term Vision</h3>
+              <p className="text-brand-text mb-8 max-w-2xl text-sm leading-relaxed">
+                Creating the technological foundation for a truly decentralised Bharat where:
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="bg-brand-bg flex h-full flex-col gap-4 rounded-lg p-6 text-center sm:text-left">
+                  <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm sm:mx-0">
+                    <span className="text-xl">👁️</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-brand-text mb-2 font-semibold">Digital Sovereignty</h4>
+                    <p className="text-brand-text text-sm text-balance">
+                      Every citizen owns their digital identity and data
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-brand-bg flex h-full flex-col gap-4 rounded-lg p-6 text-center sm:text-left">
+                  <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm sm:mx-0">
+                    <span className="text-xl">💰</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-brand-text mb-2 font-semibold">Financial Freedom</h4>
+                    <p className="text-brand-text text-sm text-balance">
+                      Financial services accessible without intermediaries
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-brand-bg flex h-full flex-col gap-4 rounded-lg p-6 text-center sm:text-left">
+                  <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm sm:mx-0">
+                    <span className="text-xl">🔄</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-brand-text mb-2 font-semibold">Local Economies</h4>
+                    <p className="text-brand-text text-sm text-balance">
+                      Communities thrive through peer-to-peer digital infrastructure
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-brand-bg flex h-full flex-col gap-4 rounded-lg p-6 text-center sm:text-left">
+                  <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm sm:mx-0">
+                    <span className="text-xl">☸️</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-brand-text mb-2 font-semibold">Technology for Dharma</h4>
+                    <p className="text-brand-text text-sm text-balance">
+                      Technology serves dharma, not just profit
+                    </p>
                   </div>
                 </div>
               </div>
